@@ -4,6 +4,7 @@ import getFakePosts from "../../fakeData/getFakePosts";
 import { FeedContainer, showToast, simulateCallToEndpoint } from "./feed-utils";
 import getNewFakePost from "../../fakeData/getNewFakePost";
 import Post from "../Post";
+import { CircleLoader } from "react-spinners";
 
 const Feed = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -37,7 +38,12 @@ const Feed = () => {
   if (isLoading) {
     return (
       <FeedContainer>
-        <h2 className={style.loading}>caricamento...</h2>
+        <h2 className={style.loading}>
+          caricamento...
+          <div className={style.circleLoader}>
+            <CircleLoader size={100} />
+          </div>
+        </h2>
       </FeedContainer>
     );
   }
