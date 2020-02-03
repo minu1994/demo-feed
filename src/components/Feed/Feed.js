@@ -17,14 +17,15 @@ const Feed = () => {
       setIsLoading(false);
     });
 
-    // do polling
-    setInterval(() => {
+    /*  do polling
+        this will add one new post only, just for example, instead of setInterval
+     */
+    setTimeout(() => {
       showToast(
         "Sono disponibili nuovi aggiornamenti. clicca qui per vederli",
         () => {
           setIsLoading(true);
           simulateCallToEndpoint(() => {
-            // this will add one new post only, just for example
             setPostFromServer([...getFakePosts(), getNewFakePost()]);
             setIsLoading(false);
           });
